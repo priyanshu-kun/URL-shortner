@@ -8,14 +8,15 @@ const URL = require("../DB/model/url");
 router.use(express.urlencoded({ extended: false }))
 
 /*
-    @route PORT /api/url/shorten
+    @route PORT /url/shorten
     @desc Create short URL
 */
 
-router.post('/shorten',async (req,res) => {
-    const {longUrl} = req.body;
+router.post('/',async (req,res) => {
+    const { longUrl } = req.body;
 
     const baseUrl = config.get("baseURL");
+    
 
 
     // check base url mean page url
@@ -32,25 +33,28 @@ router.post('/shorten',async (req,res) => {
     }
 
     try {
-        let url = await URL.findOne({ longUrl })
+        let fetchdata = await URL.findOne({ longUrl })
 
-        if(url) {
-            return res.json(url);
+        if(fetchdata) {
+            return res.render("main",{shortenLink: fetchdata.urlCode,domain: fetchdata.shortUrl,longUrl: fetchdata.longUrl})
         }
         else {
+
             
             const shortUrl = baseUrl + '/' + urlCode;
+            let clicks;
 
             url = new URL({
                 longUrl,
                 shortUrl,
                 urlCode,
+                clicks,
                 date: new Date()
             });
 
             url.save();
 
-            res.json(url)
+            res.render("main",{shortenLink: url.urlCode,domain: url.shortUrl,longUrl: fetchdata.longUrl})
         }
 
 

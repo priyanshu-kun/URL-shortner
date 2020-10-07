@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/SCSS/style.css">
+    <title>URL shortner</title>
+</head>
+
+<body>
+    <div class="inner-wrapper">
+        <h1>URL Shortner</h1>
+        <form action="/" method="POST">
+            <label for="unshortedUrl">Enter your URL!</label>
+            <div class="input-wrapper">
+                <input type="url" name="longUrl" id="unshortedUrl" placeholder="Enter URL.">
+                <button type="submit">Shrink It</button>
+            </div>
+        </form>
+        <div class="givendata">
+            <%if(typeof shortenLink !== "undefined" && typeof domain !== "undefined" && typeof longUrl !== "undefined") { %>
+                <div class="long-url">
+                    <p>Submited Url</p>
+                    <a href="#">https://www.google.com</a>
+                </div>
+                <div class="short-url">
+                    <p>Compress Url</p>
+                    <a href="<%=shortenLink%>" target="_blank"><%=domain%></a>
+                </div>
+                <div class="clicks">
+                    <p>Clicks</p>
+                    <span>1</span>
+                </div>
+            <% }%>
+        </div>
+    </div>
+</body>
+
+</html>
