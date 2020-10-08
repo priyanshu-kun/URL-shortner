@@ -19,10 +19,10 @@
             </div>
         </form>
         <div class="givendata">
-            <%if(typeof shortenLink !== "undefined" && typeof domain !== "undefined" && typeof longUrl !== "undefined") { %>
+            <%if(typeof shortenLink !== "undefined" && typeof domain !== "undefined" && typeof newlongUrl !== "undefined" && typeof clicks !== "undefined") { %>
                 <div class="long-url">
                     <p>Submited Url</p>
-                    <a href="#">https://www.google.com</a>
+                    <a class="longString disbled" href="#"><%= newlongUrl %></a>
                 </div>
                 <div class="short-url">
                     <p>Compress Url</p>
@@ -30,11 +30,14 @@
                 </div>
                 <div class="clicks">
                     <p>Clicks</p>
-                    <span>1</span>
+                    <span><%= clicks %></span>
                 </div>
             <% }%>
         </div>
     </div>
+
+    <script src="/Js/script.js"></script>
+
 </body>
 
 </html>

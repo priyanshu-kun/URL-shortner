@@ -7,16 +7,22 @@ router.use(express.urlencoded({ extended: false }))
 
 
 /*
-    @route GET /url/:code
+    @route GET /
     @desc redirect the user to the original url
 */
 
 
 router.get("/:code",async (req,res) => {
     try {
-        const mainUrl = await URL.findOne({ urlCode: req.params.code })
+
+        let click = 0;
+        const mainUrl = await URL.findOne({ urlCode: req.params.code });
+        click = mainUrl.clicks;
+
+        await URL.findByIdAndUpdate({_id: mainUrl._id},{ clicks: ++click })
+
         if(mainUrl) {
-           return  res.redirect(mainUrl.longUrl);
+            res.redirect(mainUrl.longUrl);
         }
         else {
            return res.status(404).send("Url not found");

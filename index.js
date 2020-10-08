@@ -23,8 +23,9 @@ app.get("/", (req,res) => {
 
 
 // define routes
-app.use("/",require('./routes/routesIndex'));
 app.use("/",require('./routes/url'));
+app.use("/",require('./routes/routesIndex'));
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() => {

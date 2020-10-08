@@ -69,6 +69,7 @@ body .inner-wrapper h1 {
   background-image: -webkit-gradient(linear, left top, right top, from(#ee6352), color-stop(purple), to(#ee6352));
   background-image: linear-gradient(90deg, #ee6352, purple, #ee6352);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   background-size: 300%;
   background-position: right;
@@ -180,5 +181,11 @@ body .inner-wrapper .givendata span {
   position: relative;
   bottom: 10px;
   color: #000;
+}
+
+body .disbled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: default;
 }
 /*# sourceMappingURL=style.css.map */

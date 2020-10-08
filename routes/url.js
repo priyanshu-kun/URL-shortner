@@ -8,7 +8,7 @@ const URL = require("../DB/model/url");
 router.use(express.urlencoded({ extended: false }))
 
 /*
-    @route PORT /url/shorten
+    @route PORT /
     @desc Create short URL
 */
 
@@ -36,7 +36,7 @@ router.post('/',async (req,res) => {
         let fetchdata = await URL.findOne({ longUrl })
 
         if(fetchdata) {
-            return res.render("main",{shortenLink: fetchdata.urlCode,domain: fetchdata.shortUrl,longUrl: fetchdata.longUrl})
+            return res.render("main",{shortenLink: fetchdata.urlCode,domain: fetchdata.shortUrl,newlongUrl: fetchdata.longUrl,clicks: fetchdata.clicks})
         }
         else {
 
@@ -54,10 +54,8 @@ router.post('/',async (req,res) => {
 
             url.save();
 
-            res.render("main",{shortenLink: url.urlCode,domain: url.shortUrl,longUrl: fetchdata.longUrl})
+            res.render("main",{shortenLink: url.urlCode,domain: url.shortUrl,newlongUrl: url.longUrl,clicks: url.clicks})
         }
-
-
     }
     catch(e) {
         console.error(e)

@@ -52,6 +52,7 @@ body {
             text-transform: uppercase;
             background-image: $text-gradient;
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
             background-size: 300%;
             background-position: right;
@@ -153,6 +154,12 @@ body {
             }
         }
 
+    }
+
+    .disbled {
+        pointer-events: none;
+        opacity: 0.6;
+        cursor: default;
     }
 
 }
