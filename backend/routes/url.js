@@ -12,15 +12,15 @@ router.use(express.urlencoded({ extended: false }))
     @desc Create short URL
 */
 
-router.post('/',async (req,res) => {
+router.post('/', async (req, res) => {
     const { longUrl } = req.body;
 
     const baseUrl = config.get("baseURL");
-    
+
 
 
     // check base url mean page url
-    if(!validUrl.isUri(baseUrl)) {
+    if (!validUrl.isUri(baseUrl)) {
         return res.status(401).json("Invalid base URL");
     }
 
@@ -28,36 +28,32 @@ router.post('/',async (req,res) => {
     const urlCode = shortId.generate();
 
     // check long url
-    if(!validUrl.isUri(longUrl)) {
+    if (!validUrl.isUri(longUrl)) {
         return res.status(401).json("Invalid long URL");
     }
 
     try {
         let fetchdata = await URL.findOne({ longUrl })
 
-        if(fetchdata) {
-            return res.render("main",{shortenLink: fetchdata.urlCode,domain: fetchdata.shortUrl,newlongUrl: fetchdata.longUrl,clicks: fetchdata.clicks})
+        if (fetchdata) {
+            return res.json({ shortenLink: fetchdata.urlCode, domain: fetchdata.shortUrl, newlongUrl: fetchdata.longUrl })
         }
         else {
-
-            
             const shortUrl = baseUrl + '/' + urlCode;
-            let clicks;
 
             url = new URL({
                 longUrl,
                 shortUrl,
                 urlCode,
-                clicks,
                 date: new Date()
             });
 
             url.save();
 
-            res.render("main",{shortenLink: url.urlCode,domain: url.shortUrl,newlongUrl: url.longUrl,clicks: url.clicks})
+            res.json({ shortenLink: url.urlCode, domain: url.shortUrl, newlongUrl: url.longUrl })
         }
     }
-    catch(e) {
+    catch (e) {
         console.error(e)
         res.status(500).json("Server error");
     }
