@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #12181B;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  src: url(./assets/San-Francisco-Pro-Fonts-master/San-Francisco-Pro-Fonts-master/SF-Pro-Display-Black.otf);
+  font-family: "SF-Pro-Display-Black";
+}
+
+
+.styling-component {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background: rgba(15, 20, 22, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "SF-Pro-Display-Black";
+  /* position: relative; */
+}
+
+.styling-component h1:first-child {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.styling-component h1:first-child svg {
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+}
+
+
+
+.url-design {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%) rotate(-90deg);
+  font-size: 10rem;
+  color: rgba(255, 255, 255, 0.06);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
