@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import Content from "./components/content";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
             <path style={{ stroke: "none", fillRule: "nonzero", fill: "rgba(255, 255, 255, 0.3)", fillOpacity: "1" }} d="M 3.75 4.453125 C 3.351562 4.453125 3.046875 4.148438 3.046875 3.75 C 3.046875 3.351562 3.351562 3.046875 3.75 3.046875 " />
           </g>
         </svg>
-
 ShortURL</h1>
         <h1 className="url-design">URL</h1>
       </div>
+      <Navbar />
       <Content />
     </>
   );
