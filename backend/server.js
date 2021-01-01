@@ -3,6 +3,7 @@ const connectDB = require("./DB/db");
 const model = require("./DB/model/url")
 const path = require("path");
 const app = express();
+const cors = require("cors");
 
 app.use(express.json({ extended: false }));
 
@@ -10,6 +11,8 @@ app.use(express.json({ extended: false }));
 
 connectDB();
 
+
+app.use(cors());
 
 // define routes
 app.use("/setUrl", require('./routes/url'));
