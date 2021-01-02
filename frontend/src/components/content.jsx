@@ -1,5 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
+  LinkedinIcon,
+  FacebookIcon,
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  InstapaperShareButton,
+  TwitterShareButton,
+  TwitterIcon,
+  EmailIcon,
+} from 'react-share';
+import {
   FaCopy,
   FaInstagram,
   FaLinkedinIn,
@@ -47,10 +58,12 @@ function Content() {
         alert('Please! Enter a URL...');
       }
     } catch (e) {
-      if (e.response.status === 401) {
-        alert('It is not a valid URL');
-      } else if (e.response.status === 500) {
-        alert('Internal Server Error');
+      if (e.response) {
+        if (e.response.status === 401) {
+          alert('It is not a valid URL');
+        } else if (e.response.status === 500) {
+          alert('Internal Server Error');
+        }
       }
       handleReset();
     }
@@ -131,18 +144,35 @@ function Content() {
           <button onClick={handleCopy}>
             <FaCopy className="social-icons" />
           </button>
-          <button>
-            <FaFacebook className="social-icons" />
-          </button>
-          <button>
-            <FaInstagram className="social-icons" />
-          </button>
-          <button>
-            <FaLinkedinIn className="social-icons" />
-          </button>
-          <button>
-            <FaEnvelope className="social-icons" />
-          </button>
+          <LinkedinShareButton url={shortURL}>
+            <LinkedinIcon
+              size={40}
+              borderRadius={10}
+              bgStyle={{ fill: '#12181B' }}
+            />
+          </LinkedinShareButton>
+          <TwitterShareButton url={shortURL}>
+            <TwitterIcon
+              size={40}
+              borderRadius={10}
+              bgStyle={{ fill: '#12181B' }}
+            />
+          </TwitterShareButton>
+
+          <EmailShareButton url={shortURL}>
+            <EmailIcon
+              size={40}
+              borderRadius={10}
+              bgStyle={{ fill: '#12181B' }}
+            />
+          </EmailShareButton>
+          <FacebookShareButton url={shortURL}>
+            <FacebookIcon
+              size={40}
+              borderRadius={10}
+              bgStyle={{ fill: '#12181B' }}
+            />
+          </FacebookShareButton>
         </div>
       </div>
       {shortURL === '' ? (
