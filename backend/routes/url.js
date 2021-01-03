@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const validUrl = require('valid-url');
 const shortId = require("shortid");
-const config = require("config");
 const URL = require("../DB/model/url");
 
 router.use(express.urlencoded({ extended: false }))
@@ -15,7 +14,7 @@ router.use(express.urlencoded({ extended: false }))
 router.post('/', async (req, res) => {
     const { longUrl } = req.body;
 
-    const baseUrl = config.get("baseURL");
+    const baseUrl = 'https://mern-urlshortner-app.herokuapp.com';
 
 
 
