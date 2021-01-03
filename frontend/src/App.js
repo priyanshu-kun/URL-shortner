@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
 import Content from "./components/content";
-import Navbar from "./components/navbar";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
 ShortURL</h1>
         <h1 className="url-design">URL</h1>
       </div>
-      <Navbar />
       <Content />
     </>
   );

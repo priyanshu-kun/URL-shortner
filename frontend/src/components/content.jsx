@@ -1,26 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  LinkedinIcon,
-  FacebookIcon,
-  EmailShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  InstapaperShareButton,
-  TwitterShareButton,
-  TwitterIcon,
-  EmailIcon,
-} from 'react-share';
-import {
-  FaCopy,
-  FaInstagram,
-  FaLinkedinIn,
-  FaFacebook,
-  FaEnvelope,
-  FaMagic,
-  FaPaperPlane,
-} from 'react-icons/fa';
+import { FaMagic, FaPaperPlane } from 'react-icons/fa';
 import axios from 'axios';
 import '../styles/content.css';
+import SocialSharing from './social-sharing';
 
 function Content() {
   const [value, setValue] = useState('');
@@ -140,40 +122,7 @@ function Content() {
           <FaPaperPlane className="share-icon" />
           Share it
         </h1>
-        <div className="social-handles">
-          <button onClick={handleCopy}>
-            <FaCopy className="social-icons" />
-          </button>
-          <LinkedinShareButton url={shortURL}>
-            <LinkedinIcon
-              size={40}
-              borderRadius={10}
-              bgStyle={{ fill: '#12181B' }}
-            />
-          </LinkedinShareButton>
-          <TwitterShareButton url={shortURL}>
-            <TwitterIcon
-              size={40}
-              borderRadius={10}
-              bgStyle={{ fill: '#12181B' }}
-            />
-          </TwitterShareButton>
-
-          <EmailShareButton url={shortURL}>
-            <EmailIcon
-              size={40}
-              borderRadius={10}
-              bgStyle={{ fill: '#12181B' }}
-            />
-          </EmailShareButton>
-          <FacebookShareButton url={shortURL}>
-            <FacebookIcon
-              size={40}
-              borderRadius={10}
-              bgStyle={{ fill: '#12181B' }}
-            />
-          </FacebookShareButton>
-        </div>
+        <SocialSharing handleCopy={handleCopy} shortURL={shortURL} />
       </div>
       {shortURL === '' ? (
         <button className="submit-btn" onClick={handleUrlSubmit}>
