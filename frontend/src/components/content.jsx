@@ -29,9 +29,12 @@ function Content() {
       if (value !== '') {
         console.log(value);
         setPreloader(true);
-        const res = await axios.post('http://localhost:5000/setUrl', {
-          longUrl: value,
-        });
+        const res = await axios.post(
+          'https://mern-urlshortner-app.herokuapp.com/setUrl',
+          {
+            longUrl: value,
+          }
+        );
         setTimeout(() => {
           setShortURL(res.data.domain);
           setLongURL(res.data.newlongUrl);
