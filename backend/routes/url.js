@@ -3,8 +3,8 @@ const router = express.Router();
 const validUrl = require('valid-url');
 const shortId = require("shortid");
 const URL = require("../DB/model/url");
-
-router.use(express.urlencoded({ extended: false }))
+router.use(express.urlencoded({ extended: false }));
+// https://mern-urlshortner-app.herokuapp.com/
 
 /*
     @route PORT /
@@ -12,11 +12,9 @@ router.use(express.urlencoded({ extended: false }))
 */
 
 router.post('/', async (req, res) => {
+
     const { longUrl } = req.body;
-
-    const baseUrl = 'https://mern-urlshortner-app.herokuapp.com';
-
-
+    const baseUrl = "https://mern-urlshortner-app.herokuapp.com/";
 
     // check base url mean page url
     if (!validUrl.isUri(baseUrl)) {
@@ -38,7 +36,7 @@ router.post('/', async (req, res) => {
             return res.json({ shortenLink: fetchdata.urlCode, domain: fetchdata.shortUrl, newlongUrl: fetchdata.longUrl })
         }
         else {
-            const shortUrl = baseUrl + '/' + urlCode;
+            const shortUrl = baseUrl + urlCode;
 
             url = new URL({
                 longUrl,

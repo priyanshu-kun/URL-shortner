@@ -13,8 +13,6 @@ import { FaCopy } from 'react-icons/fa';
 import '../styles/content.css';
 
 function SocialSharing(props) {
-  const { shortURL } = props.shortURL;
-  //   const { handleCopy } = props.handleCopy;
   return (
     <div className="social-handles">
       <button
@@ -24,14 +22,14 @@ function SocialSharing(props) {
       >
         <FaCopy className="social-icons" />
       </button>
-      <LinkedinShareButton url={shortURL}>
+      <LinkedinShareButton url={props.shortURL}>
         <LinkedinIcon
           size={40}
           borderRadius={10}
           bgStyle={{ fill: '#12181B' }}
         />
       </LinkedinShareButton>
-      <TwitterShareButton url={shortURL}>
+      <TwitterShareButton url={props.shortURL}>
         <TwitterIcon
           size={40}
           borderRadius={10}
@@ -39,10 +37,10 @@ function SocialSharing(props) {
         />
       </TwitterShareButton>
 
-      <EmailShareButton url={shortURL}>
+      <EmailShareButton url={props.shortURL}>
         <EmailIcon size={40} borderRadius={10} bgStyle={{ fill: '#12181B' }} />
       </EmailShareButton>
-      <FacebookShareButton url={shortURL}>
+      <FacebookShareButton url={props.shortURL}>
         <FacebookIcon
           size={40}
           borderRadius={10}
