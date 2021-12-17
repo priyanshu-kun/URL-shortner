@@ -12,7 +12,13 @@ app.use(express.json({ extended: false }));
 connectDB();
 
 
-app.use(cors());
+app.use(cors({
+    origin: ["https://cocky-varahamihira-ca2871.netlify.app","http://localhost:3000"], 
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
 
 // define routes
 app.use("/setUrl", require('./routes/url'));

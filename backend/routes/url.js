@@ -4,17 +4,17 @@ const validUrl = require('valid-url');
 const shortId = require("shortid");
 const URL = require("../DB/model/url");
 router.use(express.urlencoded({ extended: false }));
-// https://mern-urlshortner-app.herokuapp.com/
+// https://priyanshu-url-shortner.herokuapp.com/
 
 /*
-    @route PORT /
+    @route POST /
     @desc Create short URL
 */
 
 router.post('/', async (req, res) => {
 
     const { longUrl } = req.body;
-    const baseUrl = "https://mern-urlshortner-app.herokuapp.com/";
+    const baseUrl = "https://priyanshu-url-shortner.herokuapp.com/";
 
     // check base url mean page url
     if (!validUrl.isUri(baseUrl)) {
