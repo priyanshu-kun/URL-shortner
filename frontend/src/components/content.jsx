@@ -30,9 +30,12 @@ function Content() {
         console.log(value);
         setPreloader(true);
         const res = await axios.post(
-          'https://mern-urlshortner-app.herokuapp.com/setUrl',
+          'https://priyanshu-url-shortner.herokuapp.com/setUrl',
           {
             longUrl: value,
+          },
+          {
+            "Access-Control-Allow-Origin": "*"
           }
         );
         setTimeout(() => {
