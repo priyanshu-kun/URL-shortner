@@ -1,3 +1,3 @@
 # URL-shortner
 
-### See live in action: [Go to netlify](https://clever-cray-e28c99.netlify.app/)
+### See live in action: [Go to netlify](https://cocky-varahamihira-ca2871.netlify.app/)
