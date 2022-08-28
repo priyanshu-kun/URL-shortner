@@ -20,6 +20,14 @@ app.use(cors({
     optionsSuccessStatus: 204
 }));
 
+
+app.use(express.static(path.join(__dirname,"../frontend/build")))
+
+
+app.get("/",(req,res) => {
+    res.sendFile(path.join(__dirname,"../frontend/build","index.html"));
+})
+
 // define routes
 app.use("/setUrl", require('./routes/url'));
 app.use("/", require('./routes/routesIndex'));
