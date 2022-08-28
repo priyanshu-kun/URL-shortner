@@ -13,8 +13,9 @@ router.use(express.urlencoded({ extended: false }));
 
 router.post('/', async (req, res) => {
 
+
     const { longUrl } = req.body;
-    const baseUrl = "https://priyanshu-url-shortner.herokuapp.com/";
+    const baseUrl = process.env.BASE_URL;
 
     // check base url mean page url
     if (!validUrl.isUri(baseUrl)) {

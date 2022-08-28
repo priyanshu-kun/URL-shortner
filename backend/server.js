@@ -13,7 +13,7 @@ connectDB();
 
 
 app.use(cors({
-    origin: ["https://cocky-varahamihira-ca2871.netlify.app","http://localhost:3000"], 
+    origin: "*", 
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
