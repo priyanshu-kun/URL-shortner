@@ -1,3 +1,3 @@
 # URL-shortner
 
-### See live in action: [Go to netlify](http://143.244.138.158/)
+### See live in action: [URL-shortner](http://143.244.138.158/)
